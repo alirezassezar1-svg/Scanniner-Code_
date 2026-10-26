@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "clean": "next clean"
+    "clean": "next clean",
+    "build:pages": "NEXT_PUBLIC_BASE_PATH=/Scanniner-Code_ next build && rm -rf docs && cp -r out docs && touch docs/.nojekyll",
+    "build:node": "NODE_HOST=1 next build"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

@@ -1,12 +1,12 @@
 // DocScan Iran PWA Service Worker for Offline & Fast Standalone Loading
 const CACHE_NAME = 'docscan-v1';
 const PRECACHE_ASSETS = [
-  '/',
-  '/manifest.webmanifest',
-  '/icon.svg',
-  '/apple-touch-icon.png',
-  '/pwa-192x192.png',
-  '/pwa-512x512.png',
+  './',
+  './manifest.webmanifest',
+  './icon.svg',
+  './apple-touch-icon.png',
+  './pwa-192x192.png',
+  './pwa-512x512.png',
 ];
 
 self.addEventListener('install', (event) => {

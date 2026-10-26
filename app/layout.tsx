@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import Script from 'next/script';
+import { BASE_PATH } from '@/lib/base-path';
 
 export const viewport: Viewport = {
   themeColor: [
@@ -27,9 +28,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   icons: {
-    icon: '/icon.svg',
+    icon: `${BASE_PATH}/icon.svg`,
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: `${BASE_PATH}/apple-touch-icon.png`, sizes: '180x180', type: 'image/png' },
     ],
   },
   openGraph: {
@@ -55,8 +56,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+        <link rel="apple-touch-icon" sizes="180x180" href={`${BASE_PATH}/apple-touch-icon.png`} />
+        <link rel="icon" type="image/svg+xml" href={`${BASE_PATH}/icon.svg`} />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="اسکنر مدارک" />
@@ -77,7 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: `
               if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {
                 window.addEventListener('load', function() {
-                  navigator.serviceWorker.register('/sw.js').then(function(reg) {
+                  navigator.serviceWorker.register('${BASE_PATH}/sw.js').then(function(reg) {
                     console.log('DocScan PWA ServiceWorker registered with scope:', reg.scope);
                   }).catch(function(err) {
                     console.warn('DocScan PWA ServiceWorker registration failed:', err);
